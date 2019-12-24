@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue简单demo</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{message}}</h1>
+    <input v-model="message" placeholder="edit me">
+    <p>Message is: {{ message }}</p>
+    <p>obj is: {{ obj }}</p>
+    <button @click="setObj">changeObj</button>
+    <button @click="setObjByVueSet">changeObjByVueSet</button>
+    <p>mry is: {{ mry }}</p>
+    <button @click="setMry">changeMry</button>
+    <button @click="setMryByVueSet">changeMryByVueSet</button>
+
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            obj:{
+                name:"小明"
+            },
+            mry:[1,2,3,4,5]
+        },
+        methods:{
+            setObj(){
+                this.obj.age = 24;
+                console.log(this.obj)
+            },
+            setObjByVueSet(){
+                this.$set(this.obj,'age',24)
+
+            },
+            setMry(){
+                this.mry[0] = 2;
+                console.log(this.mry)
+            },
+            setMryByVueSet(){
+                this.$set(this.mry,0,3);
+                console.log(this.mry)
+
+            },
+        }
+    })
+</script>
+</html>

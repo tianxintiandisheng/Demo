@@ -1,0 +1,21 @@
+ .header{
+  position: fixed;
+  z-index: 1; 
+  width: 100%;
+  color: #fff;
+  background:#022344;
+}
+.img{
+  width: 50px;
+}
+.logoTxt{
+  font-size: 20px;
+  padding-left: 10px;
+}
+.avatarDiv{
+  font-size: 16px;
+  float: right;
+}
+.avatarDiv>span{
+  margin-right: 10px;
+}

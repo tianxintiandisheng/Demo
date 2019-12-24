@@ -1,0 +1,32 @@
+node_modules/
+build
+npm-debug.log*
+.happypack
+*.zip
+.cool.dev.config.js
+src/asset/images/原图/logo-icon.png
+src/index.html
+.cool.dev.config.js
+.cool.dev.config.js
+*.DS_Store
+
+# UMI generated files.
+.umi
+.umi-production
+
+# Output files. 打包后的文件夹
+dist
+
+# ignore jsinspect output files.
+jsinspect.json
+
+package-*.json
+
+*.ejs
+
+# webstorm
+/.idea
+
+# 忽略经常改动的文件
+demo.html
+demo.js

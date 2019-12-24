@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <blog-post post-title="hello!"></blog-post>
+    <blog-post post-title="第二个"></blog-post>
+    <blog-post :post-title="3"></blog-post>
+    <blog-post :post-title="false"></blog-post>
+</div>
+</body>
+<script>
+    Vue.component('blog-post', {
+        // 在 JavaScript 中是 camelCase 的
+        props: {
+            postTitle: Number
+        },
+        template: '<h2>{{ postTitle }}</h2>'
+    });
+
+    var app = new Vue({
+        el: '#app'
+
+    });
+</script>
+</html>

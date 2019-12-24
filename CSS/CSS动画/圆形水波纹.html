@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形扩散</title>
+</head>
+<body>
+<style>
+    .pr{
+        position: relative;
+    }
+    .one
+    {
+        position: absolute;
+        width:100px;
+        height:100px;
+        border: 1px solid green ;
+        border-radius:50%;
+        animation:myOne 2s ease-out;
+        animation-iteration-count: infinite;
+    }
+    .two{
+        position: absolute;
+        width:100px;
+        height:100px;
+        border: 1px solid green  ;
+        border-radius:50%;
+        animation:myTwo 2s ease-out;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes myOne
+    {
+        0%   {
+            transform: scale(1);
+            opacity: 1;
+        }
+        25%   {
+            transform: scale(1.25);
+            opacity: 0.5;
+        }
+        50%   {
+            transform: scale(1.25);
+            opacity: 0.25;
+        }
+        100%   {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+    @keyframes myTwo
+    {
+        0%   {
+            transform: scale(1);
+            opacity: 1;
+        }
+        25%   {
+            transform: scale(1.25);
+            opacity: 0.5;
+        }
+        50%   {
+            transform: scale(1.5);
+            opacity: 0.25;
+        }
+        100%   {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+
+</style>
+<p><b>注意:</b> 该实例在 Internet Explorer 9 及更早 IE 版本是无效的。</p>
+<div class="pr">
+    <div class="one"></div>
+    <div class="two"></div>
+</div>
+
+</body>
+</html>
