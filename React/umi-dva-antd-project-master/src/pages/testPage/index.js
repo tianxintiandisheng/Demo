@@ -30,7 +30,7 @@ const formItemLayout = {
   },
 };
 
-const TestPage = props => {
+const TestPage = (props) => {
   // 解构赋值，把下面mapStateToProps方法return的数据，取出来。 经过connect的，dispatch自动变成组件的props
   const { num, shoppingStore, dispatch } = props;
 

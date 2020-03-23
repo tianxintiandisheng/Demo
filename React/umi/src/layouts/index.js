@@ -53,11 +53,13 @@ function BasicLayout(props) {
               <span className="nav-text">Article管理</span>
             </Link>
           </Menu.Item>
-          {/* 
+
           <Menu.Item key="4">
-            <Icon type="user" />
-            <span className="nav-text">nav 4</span>
-          </Menu.Item> */}
+            <Link to="/echarts">
+              <Icon type="upload" />
+              <span className="nav-text">echarts图表</span>
+            </Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>

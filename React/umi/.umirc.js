@@ -2,21 +2,9 @@
 export default {
   proxy: {
     '/api': {
-      target: 'http://jsonplaceholder.typicode.com/',
-      changeOrigin: true,
-      pathRewrite: { '^/api': '' },
-    },
-
-    '/testDev': {
       target: 'http://dev.admin.carrots.ptteng.com/',
       changeOrigin: true,
-      pathRewrite: { '^/testDev': '' },
-    },
-
-    '/test': {
-      target: 'https://cdn.xgqfrms.xyz/json/badges.json',
-      changeOrigin: true,
-      pathRewrite: { '^/test': '' },
+      pathRewrite: { '^/api': '' },
     },
   },
 

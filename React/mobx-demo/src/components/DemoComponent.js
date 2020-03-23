@@ -17,7 +17,7 @@ class DemoComponent extends React.Component {
   }
   handleClick = () => {
     console.log(this.props.test);// 看看这test究竟什么样子
-    this.props.test.changeName('改变');
+    this.props.test.changeName('天地生');
     const listComputed = this.props.test.getListlength;
     console.log(listComputed);
   }

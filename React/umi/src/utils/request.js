@@ -22,10 +22,8 @@ export default async function request(url, options) {
 
   checkStatus(response);
 
-  const data = await response.json(); //暂时注释
+  const data = await response.json();
 
-  //Unexpected token < in JSON at position 0 的错误解析,服务器返回的不是json格式的数据
-  // const data = await response.text();
 
   const ret = {
     data,

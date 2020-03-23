@@ -3,8 +3,8 @@ import { Table, Pagination, Popconfirm } from 'antd';
 import styles from './Users.css';
 import { PAGE_SIZE } from '../constants';
 
-function Users({ list: dataSource, total, page: current }) {
-  function deleteHandler(id) {
+function Users ({ list: dataSource, total, page: current }) {
+  function deleteHandler (id) {
     console.warn(`TODO: ${id}`);
   }
 
@@ -59,7 +59,7 @@ function Users({ list: dataSource, total, page: current }) {
   );
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   const { list, total, page } = state.users;
   return {
     list,

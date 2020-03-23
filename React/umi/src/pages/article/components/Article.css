@@ -1,0 +1,10 @@
+.list_img {
+  max-width: 120px;
+}
+.title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
