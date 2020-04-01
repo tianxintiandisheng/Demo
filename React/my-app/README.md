@@ -1,3 +1,13 @@
+# 项目介绍
+
+本项目为基于原生 react 的项目
+
+- 路由跳转
+- 组件使用，函数式组件和类组件
+- bizcharts 图表使用示例
+
+# 具体操作
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

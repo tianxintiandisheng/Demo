@@ -3,7 +3,7 @@ import { connect } from 'dva'; // connect用于component组件连接models模块
 import { Table, Spin, ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN'; // 引入中文包
 import COLUMNS from '../const'; // 用于生成列表
-import styles from './Article.css';
+// import styles from './Article.css';
 import * as articleService from '../services/articleService';
 
 
@@ -64,7 +64,6 @@ class Article extends React.Component {
         delay={500}
         style={{ maxHeight: 800 }}
       >
-        <span className={styles.title}>66666666666666666666666666666</span>
         <ConfigProvider locale={zhCN}>
           <Table
             columns={COLUMNS}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Chart, Geom, Axis, Tooltip, Legend, Coord } from 'bizcharts';
+import { Chart, Geom, Axis, Tooltip, Legend } from 'bizcharts';
 
 // 数据源
 const data = [
