@@ -23,7 +23,6 @@ const renderTabBar = (props, DefaultTabBar) => {
     </Sticky>
   )
   return reactElement;
-
 }
 
 

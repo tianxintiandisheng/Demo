@@ -7,7 +7,6 @@ class Board extends Component {
     const { lines } = this.props;
     const [a, b, c] = lines;
     let className = 'square'
-    // console.log('判断', lines)
     if (i === a || i === b || i === c) {
       className = 'squareWinner'
     }

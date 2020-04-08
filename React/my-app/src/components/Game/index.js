@@ -88,7 +88,8 @@ class Game extends Component {
     }
     this.setState({
       history: history.concat([{
-        squares: squares
+        squares: squares,
+        squareIndex: i
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
@@ -107,6 +108,7 @@ class Game extends Component {
 
   /**
    * @function 根据棋子索引分配坐标
+   * @returns {array} 返回包含棋子索引的数组
    * */
   produceCoordinate = () => {
     const size = 3; // 指定棋盘大小，现棋盘大小为3*3
@@ -123,7 +125,6 @@ class Game extends Component {
       }
     }
     return coordinateArray;
-    console.log(coordinateArray)
   }
 
 
@@ -136,7 +137,8 @@ class Game extends Component {
       for (let i = 1; i < 4; i++) {
         coordinateArray.push({ x: i, y: j })
       }
-    }
+    };
+    return coordinateArray;
   }
 
   render() {
@@ -145,24 +147,24 @@ class Game extends Component {
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares) ? calculateWinner(current.squares).winner : null;
     const coordinateArray = this.produceCoordinate();
-    const moves = history.map((step, move) => {
+    const moves = history.map((item, index) => {
       let coordinate = "";
-      console.log('move,', move)
-      if (move) {
-        const moveIndex = move - 1;
+
+      if (item.squareIndex || item.squareIndex === 0) {
+        const moveIndex = item.squareIndex;
         coordinate = `(${coordinateArray[moveIndex].x},${coordinateArray[moveIndex].y})`;
       }
 
 
-      const desc = move ?
-        `移动至第${move}步,棋子坐标为${coordinate}` :
+      const desc = index ?
+        `移动至第${index}步,棋子坐标为${coordinate}` :
         '重新开始游戏';
       return (
-        <li key={move}>
+        <li key={index}>
           {/* 在历史记录列表中加粗显示当前选择的项目,动态加载类名 */}
           <button
-            className={move === stepNumber ? 'currentButton' : 'button'}
-            onClick={() => this.jumpTo(move)}
+            className={index === stepNumber ? 'currentButton' : 'button'}
+            onClick={() => this.jumpTo(index)}
           >
             {desc}
           </button>

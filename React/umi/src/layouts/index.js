@@ -41,9 +41,9 @@ function BasicLayout(props) {
           </Menu.Item>
 
           <Menu.Item key="2">
-            <Link to="/users">
-              <Icon type="video-camera" />
-              <span className="nav-text">列表渲染</span>
+            <Link to="/form">
+              <Icon type="form" />
+              <span className="nav-text">表单</span>
             </Link>
           </Menu.Item>
 
@@ -56,7 +56,7 @@ function BasicLayout(props) {
 
           <Menu.Item key="4">
             <Link to="/echarts">
-              <Icon type="upload" />
+              <Icon type="bar-chart" />
               <span className="nav-text">echarts图表</span>
             </Link>
           </Menu.Item>
