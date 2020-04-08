@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './components/Home'; // 引入主页组件
 import Child from './components/Child'; // 引入子组件
 import ChartDemo from './components/ChartDemo'; // 引入图表示例组件
+import Game from './components/Game'; // 引入井字棋游戏组件
 
 //这个站点有多个页面，所有的页面都被渲染了
 //在浏览器中动态(不是服务器渲染)。
@@ -44,9 +45,9 @@ export default class BasicExample extends Component {
             <li>
               <Link to="/ChartDemo">bizcharts使用示例</Link>
             </li>
-            {/* <li>
-              <Link to="/dashboard">chart</Link>
-            </li> */}
+            <li>
+              <Link to="/Game">井字棋游戏</Link>
+            </li>
             <li>
               <Link to="/child">加载子组件 </Link>
             </li>
@@ -73,9 +74,9 @@ export default class BasicExample extends Component {
             <Route path="/ChartDemo">
               <ChartDemo />
             </Route>
-            {/* <Route path="/dashboard">
-              <Dashboard />
-            </Route> */}
+            <Route path="/Game">
+              <Game />
+            </Route>
             <Route path="/child">
               <Child getChildComponent={this.getChildComponent} />
             </Route>

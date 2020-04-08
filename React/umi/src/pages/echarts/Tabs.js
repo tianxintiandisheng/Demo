@@ -75,7 +75,6 @@ class TabsDemo extends Component {
    * @returns reactElement 
    * */
   renderTreeNodeChildren = (itemArray) => {
-
     let reactElementChildrenArray = null;
     if (itemArray.children && itemArray.children[0].displayName) {
       console.log('itemArray.length > 0 ', itemArray)
@@ -122,7 +121,7 @@ class TabsDemo extends Component {
       <StickyContainer>
         <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
           <TabPane tab="Tab 1" key="1" style={{ height: 200 }}>
-            {/* <TreeSelect
+            <TreeSelect
               showSearch
               style={{ width: '100%' }}
               value={this.state.value}
@@ -133,33 +132,8 @@ class TabsDemo extends Component {
               treeDefaultExpandAll={false}
               onChange={this.onChange}
             >
-              {orgTree.map(item => {
-                const reactElement = (
-                  <TreeNode
-                    key={item.orgId}
-                    value={item.orgId}
-                    title={item.orgName}
-                    selectable={false}
-                    treeNodeFilterProp={item.orgName}
-                  >
-                    {item.children.map(item => {
-                      const reactElement = (
-                        <TreeNode
-                          key={item.uuid}
-                          value={item.uuid}
-                          title={item.displayName}
-                          treeNodeFilterProp={item.orgName}
-                        />
-                      )
-                      return reactElement;
-                    })}
-                  </TreeNode>
-                );
-                return reactElement;
-              })}
-            </TreeSelect> */}
-
-
+              {this.renderTreeNode(orgTreeTop)}
+            </TreeSelect>
           </TabPane>
           <TabPane tab="Tab 2" key="2">
             <Progress
@@ -198,19 +172,7 @@ class TabsDemo extends Component {
             />
           </TabPane>
           <TabPane tab="Tab 3" key="3">
-            <TreeSelect
-              showSearch
-              style={{ width: '100%' }}
-              value={this.state.value}
-              dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="多选"
-              allowClear
-              multiple
-              treeDefaultExpandAll={false}
-              onChange={this.onChange}
-            >
-              {this.renderTreeNode(orgTreeTop)}
-            </TreeSelect>
+
           </TabPane>
         </Tabs>
       </StickyContainer>
