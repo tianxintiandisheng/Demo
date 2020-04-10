@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TreeSelect } from 'antd';
-import { orgTree, orgTreeTop } from './constant';
+import { orgTree, orgTreeTop } from '../TreeSelectForm/constant';
 
 const { TreeNode } = TreeSelect;
 

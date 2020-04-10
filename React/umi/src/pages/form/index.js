@@ -23,7 +23,7 @@ export default () => {
   return (
     <StickyContainer>
       <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
-        <TabPane tab="Tab 1" key="1" style={{ height: 200 }}>
+        <TabPane tab="Tab 1" key="1" >
           <TreeSelectForm />
         </TabPane>
         <TabPane tab="Tab 2" key="2">
