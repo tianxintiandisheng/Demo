@@ -11,24 +11,15 @@ import { orgTree, orgTreeTop } from './constant';
 
 
 const { TreeNode } = TreeSelect;
-const validateLimit = (rule, value, callback) => {
-  console.log('value', value)
-  if (value.length > 2) {
-    callback('最多选择5个选项！');
-  } else {
-    callback();
-  }
-}
+// const validateLimit = (rule, value, callback) => {
+//   if (value.length > 2) {
+//     callback('最多选择2个选项！');
+//   } else {
+//     // callback();
+//   }
+// }
 
-const getArraylength = (value) => {
-  console.log('value', value)
-  let lengthNumber = 0;
-  if (value) {
 
-    lengthNumber = value.length;
-  }
-  return lengthNumber
-}
 
 
 const rules = [
@@ -36,9 +27,6 @@ const rules = [
     required: true,
     message: "输入不能为空",
   },
-
-
-
 ];
 
 // const rulesLimit = [
@@ -61,13 +49,13 @@ class TreeSelectForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (values.onekeyAuditPersonList && values.onekeyAuditPersonList.length > 0) {
-        const onekeyAuditPersonListJson = values.onekeyAuditPersonList.map((item) => {
-          const itemJson = JSON.parse(item);
-          return itemJson
-        });
-        values.onekeyAuditPersonList = onekeyAuditPersonListJson;
-      }
+      // if (values.onekeyAuditPersonList && values.onekeyAuditPersonList.length > 0) {
+      //   const onekeyAuditPersonListJson = values.onekeyAuditPersonList.map((item) => {
+      //     const itemJson = JSON.parse(item);
+      //     return itemJson
+      //   });
+      //   values.onekeyAuditPersonList = onekeyAuditPersonListJson;
+      // }
       if (!err) {
         console.log('Received values of form: ', values);
       }
@@ -203,6 +191,14 @@ class TreeSelectForm extends Component {
     return reactElementChildrenArray;
   }
 
+  validateLimit = (rule, value, callback) => {
+    if (value && value.length > 2) {
+      callback('最多选择2个选项！');
+    } else {
+      callback();
+    }
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -271,8 +267,7 @@ class TreeSelectForm extends Component {
                 message: "输入不能为空",
               },
               {
-                validator: (rule, value, callback) => validateLimit(rule, value, callback),
-                message: "最多选择2个选项！",
+                validator: this.validateLimit,
               },
             ]
           })(
@@ -280,7 +275,7 @@ class TreeSelectForm extends Component {
               showSearch
               style={{ width: '100%' }}
               dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="多选"
+              placeholder="请选择"
               maxTagCount={2}
               allowClear
               multiple
@@ -298,8 +293,7 @@ class TreeSelectForm extends Component {
                 message: "输入不能为空",
               },
               {
-                validator: (rule, value, callback) => validateLimit(rule, value, callback),
-                message: "最多选择2个选项！",
+                validator: this.validateLimit,
               },
             ]
           })(

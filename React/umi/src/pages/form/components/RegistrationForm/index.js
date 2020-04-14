@@ -144,7 +144,7 @@ class RegistrationForm extends Component {
             rules: [
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: '这不是有效的 E-mail!',
               },
               {
                 required: true,
