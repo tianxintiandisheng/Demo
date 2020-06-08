@@ -3,6 +3,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import RegistrationForm from './components/RegistrationForm';
 import TreeSelectForm from './components/TreeSelectForm';
 
+
 const { TabPane } = Tabs;
 
 const renderTabBar = (props, DefaultTabBar) => {

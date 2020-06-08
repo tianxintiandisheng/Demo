@@ -152,7 +152,7 @@ const COLUMNS = [
     align: 'center',
     render: (text, record) => (
       <span>
-        <a>下线</a>
+        <a onClick={() => console.log('record.id', record.id)}>下线</a>
         <Divider type="vertical" />
         <a>编辑</a>
         <Divider type="vertical" />

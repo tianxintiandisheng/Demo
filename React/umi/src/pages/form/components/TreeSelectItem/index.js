@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TreeSelect } from 'antd';
-import { orgTree, orgTreeTop } from '../TreeSelectForm/constant';
+import { orgTreeTop } from '../TreeSelectForm/constant';
 
 const { TreeNode } = TreeSelect;
 
@@ -28,7 +28,6 @@ class TreeSelectItem extends Component {
       return reactElement;
     })
     return reactElementArray;
-
   }
 
   /**
@@ -54,9 +53,6 @@ class TreeSelectItem extends Component {
         return reactElementChildren;
       })
     } else if (itemArray.children) {
-      // console.count('item.children', itemArray.children);
-      // console.log('(item.children的item', itemArray)
-      // console.log('(item.children', itemArray.children)
       reactElementChildrenArray = itemArray.children.map(item => {
         const reactElementChildren = (
           <TreeNode
@@ -72,8 +68,6 @@ class TreeSelectItem extends Component {
         return reactElementChildren;
       });
     } else {
-      // console.log('item.children1111', item.children)
-      // console.log('item.children1111', item)
       return reactElementChildrenArray;
     }
     return reactElementChildrenArray;

@@ -1,71 +1,40 @@
-import React, { Component } from 'react';
+import React from "react";
 import {
   Form,
-  Button,
-  // Input,
+  Input,
   TreeSelect,
+  Button,
+  DatePicker,
+  Radio,
 } from 'antd';
-
-
 import { orgTreeTop } from './constant';
+import WrappedDemo from "../WrappedDemo";
+import CheckAndRadio from "../CheckAndRadio";
 
-
+// const { Option } = Select;
 const { TreeNode } = TreeSelect;
-// const validateLimit = (rule, value, callback) => {
-//   if (value.length > 2) {
-//     callback('最多选择2个选项！');
-//   } else {
-//     // callback();
-//   }
-// }
+const { TextArea } = Input;
 
 
-
-
-const rules = [
-  {
-    required: true,
-    message: "输入不能为空",
-  },
-];
-
-// const rulesLimit = [
-//   {
-//     required: true,
-//     message: "输入不能为空",
-//   },
-//   {
-//     validator: (rule, value, callback) => validateLimit(rule, value, callback),
-//     message: "输入不能为空111",
-//   },
-// ];
-
-class TreeSelectForm extends Component {
+class CreatMeeting extends React.Component {
   state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
+
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
-      // if (values.onekeyAuditPersonList && values.onekeyAuditPersonList.length > 0) {
-      //   const onekeyAuditPersonListJson = values.onekeyAuditPersonList.map((item) => {
-      //     const itemJson = JSON.parse(item);
-      //     return itemJson
-      //   });
-      //   values.onekeyAuditPersonList = onekeyAuditPersonListJson;
-      // }
-      if (!err) {
-        console.log('Received values of form: ', values);
+    const { form } = this.props
+    form.validateFields((err, fieldsValue) => {
+      if (err) {
+        return;
       }
+      // 时间类组件的 value 类型为 moment 对象，所以在提交服务器前需要预处理
+      const values = {
+        ...fieldsValue,
+        'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
+      };
+      window.console.log('Received values of form: ', values);
     });
-  };
-
-
-  handleConfirmBlur = e => {
-    const { value } = e.target;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
   /**
@@ -85,7 +54,7 @@ class TreeSelectForm extends Component {
           value={item.orgCode}
           title={item.orgName}
           selectable={false}
-          treeNodeFilterProp="title"
+          treeNodeFilterProp={item.orgName}
         >
           {stateIsUser ? this.renderTreeNodeChildrenUser(item, stateIsPolice) : this.renderTreeNodeChildrenOrg(item)}
         </TreeNode>
@@ -116,7 +85,7 @@ class TreeSelectForm extends Component {
             key={item.uuid}
             value={item.username}
             title={item.displayName}
-            treeNodeFilterProp="title"
+            treeNodeFilterProp={item.displayName}
           />
         )
         return reactElementChildren;
@@ -134,7 +103,7 @@ class TreeSelectForm extends Component {
             key={item.uuid}
             value={JSON.stringify(valueAuditPerson)}
             title={item.displayName}
-            treeNodeFilterProp="title"
+            treeNodeFilterProp={item.displayName}
           />
         )
         return reactElementChildren;
@@ -148,7 +117,7 @@ class TreeSelectForm extends Component {
             value={item.orgCode}
             title={item.orgName}
             selectable={false}
-            treeNodeFilterProp="title"
+            treeNodeFilterProp={item.orgName}
           >
             {this.renderTreeNodeChildrenUser(item, stateIsPolice)}
           </TreeNode>
@@ -162,12 +131,12 @@ class TreeSelectForm extends Component {
   }
 
   /**
- * @function 数组的map函数，递归渲染treenode数据
- * @description 渲染至组织
- * @param {Array} itemArray  数组的项
- * @returns reactElement 
- * @author tds 2020-4-9
- * */
+  * @function 数组的map函数，递归渲染treenode数据
+  * @description 渲染至组织
+  * @param {Array} itemArray  数组的项
+  * @returns reactElement 
+  * @author tds 2020-4-9
+  * */
   renderTreeNodeChildrenOrg = (itemArray) => {
     let reactElementChildrenArray = null;
 
@@ -178,7 +147,7 @@ class TreeSelectForm extends Component {
             key={item.orgCode}
             value={item.orgCode}
             title={item.orgName}
-            treeNodeFilterProp="title"
+            treeNodeFilterProp={item.orgName}
           >
             {this.renderTreeNodeChildrenOrg(item)}
           </TreeNode>
@@ -191,28 +160,22 @@ class TreeSelectForm extends Component {
     return reactElementChildrenArray;
   }
 
-  validateLimit = (rule, value, callback) => {
-    if (value && value.length > 2) {
-      callback('最多选择2个选项！');
-    } else {
-      callback();
-    }
-  }
+
+
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { form: { getFieldDecorator } } = this.props;
 
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 8 },
+        sm: { span: 4 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 },
+        sm: { span: 10 },
       },
     };
-
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {
@@ -220,111 +183,118 @@ class TreeSelectForm extends Component {
           offset: 0,
         },
         sm: {
-          span: 16,
-          offset: 8,
+          span: 20,
+          offset: 4,
         },
       },
     };
+    const rulesDefault = [
+      {
+        required: true,
+        message: '此项为必填项!',
+      },
+    ];
 
-    const iconTemp = (
-      <span>4444</span>
-    );
+    const rulesDate = [
+      {
+        type: 'object',
+        required: true,
+        message: '此项为必填项!',
+      },
+    ];
+
+
+
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label="应用版权所属">
-          {getFieldDecorator("orgDictCode", { rules })(
-            <TreeSelect
-              showSearch
-              style={{ width: '100%' }}
-              dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="单选"
-              allowClear
-              treeDefaultExpandAll={false}
-            >
-              {this.renderTreeNode(orgTreeTop)}
-            </TreeSelect>
-          )}
+        <Form.Item label="会议主题">
+          {getFieldDecorator('title', {
+            rules: rulesDefault,
+          })(<Input placeholder="填写会议名称" />)}
         </Form.Item>
-        <Form.Item label="应用适用组织">
-          {getFieldDecorator("useOrgs", { rules })(
-            <TreeSelect
-              showSearch
-              style={{ width: '100%' }}
-              dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="多选"
-              maxTagCount={2}
-              allowClear
-              multiple
-              treeDefaultExpandAll={false}
-            >
-              {this.renderTreeNode(orgTreeTop)}
-            </TreeSelect>
-          )}
+        <Form.Item label="会议日期">
+          {getFieldDecorator('date-picker', {
+            rules: rulesDate,
+          }
+          )(<DatePicker />)}
         </Form.Item>
-        <Form.Item label="审批领导">
-          {getFieldDecorator("onekeyAuditPersonList", {
-            rules: [
-              {
-                required: true,
-                message: "输入不能为空",
-              },
-              {
-                validator: this.validateLimit,
-              },
-            ]
-          })(
-            <TreeSelect
-              suffixIcon={iconTemp}
-              style={{ width: '100%' }}
-              dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="请选择审批领导"
-              maxTagCount={2}
-              allowClear
-              multiple
-              treeDefaultExpandAll={false}
-            >
-              {this.renderTreeNode(orgTreeTop, true)}
-            </TreeSelect>
-          )}
+        <Form.Item label="会议地点">
+          {getFieldDecorator('site', {
+            rules: rulesDefault,
+          })(<Input placeholder="填写会议地点" />)}
         </Form.Item>
-        <Form.Item label="负责民警">
+        <Form.Item label="邀请参与人">
           {getFieldDecorator("dutyPoliceVOList", {
-            rules: [
-              {
-                required: true,
-                message: "输入不能为空",
-              },
-              {
-                validator: this.validateLimit,
-              },
-            ]
+            rules: rulesDefault,
           })(
             <TreeSelect
-              treeNodeFilterProp="title"
               showSearch
               style={{ width: '100%' }}
               dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-              placeholder="多选"
+              placeholder="选择参会人员"
               allowClear
-              treeCheckable
               multiple
+              treeCheckable
               treeDefaultExpandAll={false}
             >
               {this.renderTreeNode(orgTreeTop, true, true)}
             </TreeSelect>
           )}
         </Form.Item>
+        <Form.Item label="会议通知">
+          {getFieldDecorator('expain', {
+            rules: rulesDefault,
+          })(<TextArea placeholder="填写会议通知，限制字数1000字" autoSize={{ minRows: 5, maxRows: 10 }} />)}
+        </Form.Item>
+        <Form.Item label="是否参会">
+          {getFieldDecorator('option', {
+            rules: rulesDefault,
+          })(
+            <Radio.Group>
+              <Radio value={1}>参加</Radio>
+              <Radio value={2}>不参加</Radio>
+            </Radio.Group>
+          )}
+        </Form.Item>
+        {/* <Form.Item label="自定义控件">
+          {getFieldDecorator('option', {
+            rules: rulesDefault,
+          })(<WrappedDemo />)}
+        </Form.Item> */}
+        <Form.Item label="官方自定义控件demo">
+          {getFieldDecorator('price', {
+            initialValue: { number: 1, currency: 'rmb1' },
+            // rules: [{ validator: this.checkPrice }],
+          })(<WrappedDemo />)}
+        </Form.Item>
+
+        <Form.Item label="自定义控件demo">
+          {getFieldDecorator('meetingItem', {
+            initialValue: { labelText: '是否自爆', radioValue: 1 },
+          })(<CheckAndRadio />)}
+        </Form.Item>
+
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
-            申请
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ marginRight: 10 }}
+          >
+            发送会议通知
+          </Button>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ backgroundColor: 'green' }}
+          >
+            保存至草稿箱
           </Button>
         </Form.Item>
       </Form>
-    )
+    );
   }
-
 }
 
-const TreeSelectFormDemo = Form.create({ name: 'register' })(TreeSelectForm);
-export default TreeSelectFormDemo;
+const CreatMeetingForm = Form.create({ name: 'creat' })(CreatMeeting);
+export default CreatMeetingForm;

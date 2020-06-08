@@ -11,7 +11,6 @@ export const orgTree = [
     orgName: 'orgName-预审大队',
     prtId: 'prtId-预审大队',
   },
-
   {
     orgCode: 'orgCode-公安消防大队',
     orgId: 'orgCode-公安消防大队',
@@ -48,19 +47,19 @@ export const orgTreeTop = [
               {
                 displayName: "刑事科学技术室-徐亮1",
                 username: 'username-刑事科学技术室1-徐亮1',
-                uuid: 'uuid-刑事科学技术室徐亮1'
+                uuid: 'uuid-刑事科学技术室徐亮1',
               },
               {
                 displayName: "刑事科学技术室-王斌1",
                 username: 'username-刑事科学技术室1-王斌1',
-                uuid: 'uuid-刑事科学技术室王斌1'
+                uuid: 'uuid-刑事科学技术室王斌1',
               },
               {
                 displayName: "刑事科学技术室-王建国1",
                 username: 'username-刑事科学技术室1-王建国1',
-                uuid: 'uuid-刑事科学技术室王建国1'
+                uuid: 'uuid-刑事科学技术室王建国1',
               },
-            ]
+            ],
           },
           {
             orgCode: 'orgCode-预审大队1',
@@ -71,45 +70,22 @@ export const orgTreeTop = [
               {
                 displayName: "预审大队-徐亮1",
                 username: 'username-预审大队1-徐亮1',
-                uuid: 'uuid-预审大队徐亮1'
+                uuid: 'uuid-预审大队徐亮1',
               },
               {
                 displayName: "预审大队-王斌1",
                 username: 'username-预审大队1-王斌1',
-                uuid: 'uuid-预审大队王斌1'
+                uuid: 'uuid-预审大队王斌1',
               },
               {
                 displayName: "预审大队-王建国1",
                 username: 'username-预审大队1-王建国1',
-                uuid: 'uuid-预审大队王建国1'
+                uuid: 'uuid-预审大队王建国1',
               },
-            ]
+            ],
           },
-          {
-            orgCode: 'orgCode-预审大队2',
-            orgId: 'orgCode-预审大队2',
-            orgName: 'orgName-预审大队1',
-            prtId: 'prtId-预审大队',
-            users: [
-              {
-                displayName: "displayName-预审大队-徐亮2",
-                username: 'username-预审大队2-徐亮2',
-                uuid: 'uuid-预审大队徐亮1'
-              },
-              {
-                displayName: "预审大队-王斌2",
-                username: 'username-预审大队2-王斌2',
-                uuid: 'uuid-预审大队王斌1'
-              },
-              {
-                displayName: "预审大队-王建国2",
-                username: 'username-预审大队2-王建国2',
-                uuid: 'uuid-预审大队王建国1'
-              },
-            ]
-          },
-        ]
+        ],
       },
-    ]
+    ],
   },
 ]
