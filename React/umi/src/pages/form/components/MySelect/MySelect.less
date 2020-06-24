@@ -1,0 +1,37 @@
+.root {
+  :global {
+    .ant-select-selection {
+      width: 200px;
+      height: 20px;
+
+      color: green;
+      background-color: red;
+    }
+    .ant-select-selection__rendered {
+      line-height: 20px;
+    }
+  }
+}
+.dropdownClassName {
+  background-color: red;
+  :global {
+    .ant-select-dropdown-menu-item {
+      height: 15px;
+      padding: 1px 12px;
+      line-height: 15px;
+      font-size: 6px;
+    }
+    .ant-select-dropdown-menu-item-selected {
+      background-color: red;
+      &:hover {
+        background-color: red;
+      }
+    }
+    .ant-select-dropdown-menu-item-active {
+      background-color: blue;
+      &:hover {
+        background-color: blue;
+      }
+    }
+  }
+}

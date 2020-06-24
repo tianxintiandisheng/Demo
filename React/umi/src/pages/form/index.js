@@ -2,7 +2,7 @@ import { Tabs } from 'antd';
 import { StickyContainer, Sticky } from 'react-sticky';
 import RegistrationForm from './components/RegistrationForm';
 import TreeSelectForm from './components/TreeSelectForm';
-
+import MySelect from './components/MySelect';
 
 const { TabPane } = Tabs;
 
@@ -31,7 +31,7 @@ export default () => {
           <RegistrationForm />
         </TabPane>
         <TabPane tab="Tab 3" key="3">
-
+          <MySelect />
         </TabPane>
       </Tabs>
     </StickyContainer>

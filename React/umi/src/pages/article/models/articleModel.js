@@ -78,7 +78,7 @@ export default {
     setup({ dispatch, history }) {
       return history.listen(({ pathname }) => {
         if (pathname === '/article') {
-          dispatch({ type: 'handleArticleData' });
+          dispatch({ type: 'handleArticleData', page: 1 });
         }
       });
     },

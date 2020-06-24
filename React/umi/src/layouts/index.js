@@ -60,6 +60,12 @@ function BasicLayout(props) {
               <span className="nav-text">echarts图表</span>
             </Link>
           </Menu.Item>
+          <Menu.Item key="5">
+            <Link to="/drag-demo">
+              <Icon type="drag" />
+              <span className="nav-text">拖拽组件示例</span>
+            </Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
