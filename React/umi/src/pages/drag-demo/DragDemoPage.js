@@ -14,9 +14,6 @@ const { Title } = Typography;
 // 将 HTMLBackend 作为参数传给 DragDropContext
 
 
-
-
-
 class DragDemoPage extends React.Component {
   constructor(props) {
     super(props);
@@ -54,20 +51,19 @@ class DragDemoPage extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-        {/* This is DragDemo */}
-        {/* <Vote /> */}
-        {/* <Title>资源编辑demo</Title>
-        <ResourceAdd></ResourceAdd> */}
 
-        {/* <Title>基础拖拽</Title>
+        <Title>资源编辑demo</Title>
+        <ResourceAdd></ResourceAdd>
+
+        <Title>基础拖拽</Title>
         <BasicsDrag></BasicsDrag>
         <Title>基础拖拽样式优化</Title>
         <ReactBeautifulDnd></ReactBeautifulDnd>
         <Title>嵌套拖拽示例</Title>
         <Nest></Nest>
         <Title>基于h5的的拖拽，只能用于pc端</Title>
-        <Vote data={this.state.data} /> */}
-
+        <Vote data={this.state.data} />
+        <Title>拖拽投票</Title>
         <VoteByDnd />
       </div>
     );

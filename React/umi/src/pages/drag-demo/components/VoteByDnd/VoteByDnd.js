@@ -100,14 +100,12 @@ class VoteByDnd extends React.Component {
     if (!result.destination) {
       return;
     }
-
     const { items: prevItems } = this.state;
     const items = reorder(
       prevItems,
       result.source.droppableId,
       result.destination.droppableId
     );
-
     this.setState({
       items,
       isDragging: false,
@@ -168,7 +166,6 @@ class VoteByDnd extends React.Component {
     return (
       <div className={styles.root} >
         <DragDropContext onDragEnd={this.onDragEnd} onDragStart={this.onDragStart}>
-
           <Droppable droppableId="droppable" type="father">
             {(provided, snapshot) => (
               <div
@@ -191,15 +188,8 @@ class VoteByDnd extends React.Component {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        // style={getItemStyle(snapshot)}
                         className={styles.flexItem}
-                      // style={setItemStyle(
-                      //   snapshot.isDragging,
-                      //   provided.draggableProps.style
-                      // )}
                       >
-
-
                         <div className={styles.tempTitle}> {item} </div>
                         {this.renderChildDrag(item, index)}
                       </div>

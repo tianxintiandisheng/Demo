@@ -66,6 +66,12 @@ function BasicLayout(props) {
               <span className="nav-text">拖拽组件示例</span>
             </Link>
           </Menu.Item>
+          <Menu.Item key="6">
+            <Link to="/table-list">
+              <Icon type="table" />
+              <span className="nav-text">自定义列表</span>
+            </Link>
+          </Menu.Item>
         </Menu>
       </Sider>
       <Layout>
