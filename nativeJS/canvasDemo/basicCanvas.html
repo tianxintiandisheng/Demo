@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Code</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="myCanvas" width="200" height="200">
+      要使用canvas元素，必须先设置其 width 和 height
+      属性，指定可以绘图的区域大小。出现在
+      开始和结束标签中的内容是后备信息，如果浏览器不支持canvas元素，就会显示这些信息。
+    </canvas>
+    <script>
+      const myCanvas = document.getElementById('myCanvas')
+      console.log('myCanvas', myCanvas)
+      //确定浏览器支持<canvas>元素
+      if (myCanvas.getContext) {
+        const context = myCanvas.getContext('2d') // 获取绘图上下文
+        console.log('绘图上下文-context', context)
+        //绘制红色矩形
+        context.fillStyle = '#ff0000'
+        context.fillRect(10, 10, 50, 50)
+
+        //绘制半透明的蓝色矩形
+        context.fillStyle = 'rgba(0,0,255,0.5)'
+        context.fillRect(30, 30, 50, 50)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Taoism</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+      const width = (document.getElementById('myCanvas').width =
+        screen.availWidth)
+      const height = (document.getElementById('myCanvas').height =
+        screen.availHeight)
+      const ctx = document.getElementById('myCanvas').getContext('2d')
+      //因为后面一个字50px,所以用总宽度除以50恰好够用,不至于浪费资源
+      const arr = Array(Math.ceil(width / 50)).fill(0)
+      //这里为了不出现下坠的视觉效果，所以加了很多空格，大家感兴趣可以把空格去了，自己看看什么效果。
+      const str = '临兵斗者皆阵列前行乾坤震巽坎离艮兑                                                  '.split(
+        ''
+      )
+      function rain() {
+        ctx.fillStyle = 'rgba(0,0,0,0.05)'
+        ctx.fillRect(0, 0, width, height)
+        ctx.fillStyle = '#f00'
+        arr.forEach(function (value, index) {
+          ctx.font = '50px 华文行楷'
+          ctx.fillText(
+            str[Math.floor(Math.random() * str.length)],
+            index * 50,
+            value + 50
+          )
+          arr[index] =
+            value >= height || value > 8888 * Math.random() ? 0 : value + 50
+        })
+      }
+
+      setInterval(rain, 50)
+    </script>
+  </body>
+</html>

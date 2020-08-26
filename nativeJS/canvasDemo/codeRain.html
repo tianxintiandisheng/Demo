@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Code</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+      const width = (document.getElementById('myCanvas').width =
+        screen.availWidth)
+      const height = (document.getElementById('myCanvas').height =
+        screen.availHeight)
+      const ctx = document.getElementById('myCanvas').getContext('2d')
+      const arr = Array(Math.ceil(width / 10)).fill(0) // Math.ceil(x);返回大于一个数的最小整数，即一个数向上取整后的值。
+      const str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.split('')
+
+      function rain() {
+        //这里的重点就是每次调用这个方法的时候都会重新绘制一张透明度为0.05的黑色画布来覆盖前图
+        //所以就会形成人眼中的下雨效果
+        ctx.fillStyle = 'rgba(0,0,0,0.05)'
+        ctx.fillRect(0, 0, width, height)
+        ctx.fillStyle = '#0f0'
+        arr.forEach(function (value, index) {
+          // Math.random(); 返回一个 0 到 1 之间的伪随机数。
+          ctx.fillText(
+            str[Math.floor(Math.random() * str.length)],
+            index * 10,
+            value + 10
+          )
+          arr[index] =
+            value >= height || value > 8888 * Math.random() ? 0 : value + 10
+        })
+      }
+
+      setInterval(rain, 30)
+    </script>
+  </body>
+</html>
