@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+
+  .item {
+    position: relative;
+    line-height: 22px;
+    padding: 0 14px;
+    margin: 0 16px 16px 0;
+    background: rgba(0, 0, 0, .05);
+    border-radius: 2px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+
+    // &:hover ,
+    &.activeItem {
+      background: #2950B8;
+      border-color: #2950B8;
+      color: #FFFFFF;
+    }
+
+  }
+}

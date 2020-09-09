@@ -1,0 +1,23 @@
+.root .formwork {
+  font-size: 16px;
+  height: 48px;
+  border-left: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+.root .detail {
+  border: 1px solid #ebebeb;
+}
+.root .detail .typeboard {
+  height: 40px;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}
+.root :global .ant-input-number-handler-wrap {
+  opacity: 1;
+}

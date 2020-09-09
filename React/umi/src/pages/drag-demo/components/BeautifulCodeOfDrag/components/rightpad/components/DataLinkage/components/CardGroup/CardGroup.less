@@ -1,0 +1,54 @@
+.root {
+  .all {
+    :global {
+      .ant-checkbox-wrapper {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+      }
+      .ant-checkbox {
+        margin-top: 2.5px;
+      }
+    }
+  }
+  .notAll {
+    :global {
+      .ant-checkbox-wrapper {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+      }
+      .ant-checkbox {
+        margin-top: 2.5px;
+      }
+      // .ant-checkbox-indeterminate .ant-checkbox-inner::after {
+      //   top: 50%;
+      //   left: 50%;
+      //   width: 10px;
+      //   height: 2px;
+      //   background-color: #fff;
+      //   border: 0;
+      //   -webkit-transform: translate(-50%, -50%) scale(1);
+      //   -ms-transform: translate(-50%, -50%) scale(1);
+      //   transform: translate(-50%, -50%) scale(1);
+      //   opacity: 1;
+      //   content: " ";
+      // }
+    }
+  }
+  .flexBox {
+    display: flex;
+  }
+  .childCheck {
+    overflow: scroll;
+    height: 100px;
+  }
+  :global {
+    .ant-card-type-inner .ant-card-head {
+      padding: 0 12px;
+    }
+    .ant-card-type-inner .ant-card-body {
+      padding: 5px 0 5px 12px;
+    }
+  }
+}

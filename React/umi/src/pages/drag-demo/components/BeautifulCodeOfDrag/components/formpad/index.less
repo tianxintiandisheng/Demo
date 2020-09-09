@@ -1,0 +1,38 @@
+.root {
+  padding-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 64px;
+  position: relative;
+  .left {
+    width: 146px;
+    text-align: right;
+  }
+  .right {
+    // flex:auto修改为1;参数描述过多导致右侧表单被挤压;2020.04.28
+    flex: 1;
+  }
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 10px;
+    cursor: pointer;
+  }
+  .containerBox {
+    width: 100%;
+
+    .container {
+      padding-left: 20px;
+      margin-bottom: 5px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 24px;
+    }
+  }
+
+  .message {
+    margin-bottom: 5px;
+  }
+}

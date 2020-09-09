@@ -1,0 +1,16 @@
+.root {
+  .message {
+    margin-left: 20px;
+  }
+  .formBox {
+    display: flex;
+    .left {
+      width: 146px;
+      text-align: right;
+    }
+    .right {
+      // flex:auto修改为1;参数描述过多导致右侧表单被挤压;2020.04.28
+      flex: 1;
+    }
+  }
+}

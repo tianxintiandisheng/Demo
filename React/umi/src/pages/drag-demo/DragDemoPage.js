@@ -1,13 +1,13 @@
 import React from "react";
 import { Typography } from 'antd';
 
-import Nest from "./components/Nest";
-import ResourceAdd from "./components/ResourceAdd";
-import BasicsDrag from "./components/BasicsDrag";
-import Vote from "./components/Vote";
-import VoteByDnd from "./components/VoteByDnd";
-import ReactBeautifulDnd from "./components/ReactBeautifulDnd";
-
+// import Nest from "./components/Nest";
+// import ResourceAdd from "./components/ResourceAdd";
+// import BasicsDrag from "./components/BasicsDrag";
+// import Vote from "./components/Vote";
+// import VoteByDnd from "./components/VoteByDnd";
+// import ReactBeautifulDnd from "./components/ReactBeautifulDnd";
+import BeautifulCodeOfDrag from "./components/BeautifulCodeOfDrag";
 
 import styles from "./DragDemoPage.less";
 const { Title } = Typography;
@@ -51,8 +51,10 @@ class DragDemoPage extends React.Component {
   render() {
     return (
       <div className={styles.root}>
-
         <Title>资源编辑demo</Title>
+        <BeautifulCodeOfDrag></BeautifulCodeOfDrag>
+
+        {/* <Title>资源编辑demo</Title>
         <ResourceAdd></ResourceAdd>
 
         <Title>基础拖拽</Title>
@@ -64,7 +66,7 @@ class DragDemoPage extends React.Component {
         <Title>基于h5的的拖拽，只能用于pc端</Title>
         <Vote data={this.state.data} />
         <Title>拖拽投票</Title>
-        <VoteByDnd />
+        <VoteByDnd /> */}
       </div>
     );
   }

@@ -1,0 +1,43 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+
+  .item {
+    position: relative;
+    width: 110px;
+    height: 60px;
+    line-height: normal;
+    padding: 8px;
+    margin: 0 16px 16px 0;
+    background: rgba(216, 216, 216, .52);
+    border: 1px solid transparent;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &.activeItem,
+    &:hover {
+      background: rgba(138, 157, 208, 0.04);
+      border-color: #2950B8;
+    }
+
+    .checkIcon {
+      position: absolute;
+      font-size: 16px;
+      color: #2950B8;
+      bottom: -1px;
+      right: -1px;
+      display: none;
+    }
+
+    .activeIcon {
+      display: block;
+    }
+  }
+}
