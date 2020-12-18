@@ -5,7 +5,7 @@ class Child extends Component {
     this.props.getChildComponent(this);
   }
 
-  myName = () => alert('天心天地生')
+  myName = () => alert('我是子组件')
 
   render() {
     return (
