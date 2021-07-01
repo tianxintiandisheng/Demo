@@ -1,4 +1,5 @@
 import React from "react";
+import { findDOMNode } from 'react-dom';
 import { Typography, Tabs } from 'antd';
 
 import Nest from "./components/Nest";
@@ -47,11 +48,19 @@ class DragDemoPage extends React.Component {
         bgColor: "cyan"
       }]
     }
+    this.myRef = React.createRef();
   }
+
+  componentDidMount() {
+    const el = findDOMNode(this);
+    console.log('el', el)
+  }
+
   render() {
+    console.log('this.myRef', this.myRef)
     return (
       <div className={styles.root}>
-        <Tabs defaultActiveKey="3" >
+        <Tabs defaultActiveKey="3" ref={this.myRef}>
           <TabPane tab="拖拽生成动态表单" key="1">
             <Title>资源编辑</Title>
             <BeautifulCodeOfDrag />
@@ -73,11 +82,6 @@ class DragDemoPage extends React.Component {
             <VoteByDnd />
           </TabPane>
         </Tabs>
-
-
-
-
-
       </div>
     );
   }
