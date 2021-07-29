@@ -1,0 +1,23 @@
+{
+  "name": "rollup-npm-package",
+  "version": "1.0.0",
+  "description": "rollup引入npm包",
+  "main": "rollup.config.js",
+  "dependencies": {
+    "the-answer": "^1.0.0"
+  },
+  "devDependencies": {
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rollup",
+    "npm-package"
+  ],
+  "author": "tds",
+  "license": "ISC"
+}
