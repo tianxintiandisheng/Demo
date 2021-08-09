@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>嵌套的iframe页面,用于接收消息</title>
+</head>
+
+<body>
+    <div id="recMessage">
+        iframe
+    </div>
+    <script>
+        window.onload = function () {
+            var messageEle = document.getElementById('recMessage');
+            window.addEventListener('message', function (e) {  // 监听 message 事件
+                // alert(e.origin);
+                console.log('监听的事件',e)
+                console.log('消息来源地址',e.origin)
+                console.log('收到消息：', e.data)
+                if (e.origin !== "https://www.runoob.com") {  // 验证消息来源地址
+                    return;
+                }
+                messageEle.innerHTML = "从" + e.origin + "收到消息： " + e.data;
+            });
+        }
+    </script>
+</body>
+
+</html>

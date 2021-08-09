@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+<div>
+    <h1>父页面,用于发送消息</h1>
+    <input id="text" type="text" value="666" />
+    <button id="sendMessage" >发送消息</button>
+</div>
+<h1>嵌套的iframe页面,用于接收消息</h1>
+<iframe id="receiver" src="./postMessage_receiver.html" width="300" height="360">
+    <p>你的浏览器不支持 iframe。</p>
+</iframe>
+<h2>定义和用法</h2>
+<p>postMessage() 方法用于安全地实现跨源通信。 </p>
+
+<h2>语法</h2>
+<pre class="prettyprint prettyprinted" style=""><span class="pln">otherWindow</span><span class="pun">.</span><span class="pln">postMessage</span><span class="pun">(</span><span class="pln">message</span><span class="pun">,</span><span class="pln"> targetOrigin</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="pln">transfer</span><span class="pun">]);</span></pre>
+<br><table class="reference">
+  <tbody><tr>
+    <th align="left" width="20%">参数</th>
+    <th align="left" width="80%">说明</th>
+  </tr>  
+  <tr>
+    <td>otherWindow</td>
+    <td>其他窗口的一个引用，比如 iframe 的 contentWindow 属性、执行 window.open 返回的窗口对象、或者是命名过或数值索引的 window.frames。</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>将要发送到其他 window的数据。
+	</td>
+  </tr>
+  <tr>
+    <td> targetOrigin </td>
+    <td>指定哪些窗口能接收到消息事件，其值可以是 <span class="marked">*</span>（表示无限制）或者一个 URI。
+
+    </td>
+  </tr>
+    <tr>
+    <td> transfer </td>
+    <td>可选，是一串和 message 同时传递的 Transferable 对象。这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
+	</td>
+  </tr>
+  </tbody></table>
+<br><hr>
+<script>
+window.onload = function() {
+    var receiver = document.getElementById('receiver').contentWindow;
+    var btn = document.getElementById('sendMessage');
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var val = document.getElementById('text').value;
+        receiver.postMessage("Hello "+val+"！", "*");
+    });
+}
+</script>
+</body>
+</html>

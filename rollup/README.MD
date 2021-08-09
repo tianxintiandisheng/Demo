@@ -12,6 +12,22 @@
 
 rollup引入npm依赖包
 这个 rollup-plugin-node-resolve 插件可以告诉 Rollup 如何查找外部模块
-```
+
+```shell
 npm install --save-dev rollup-plugin-node-resolve
+```
+.将它加入到你的配置文件中:
+
+```js
+// rollup.config.js
+import resolve from 'rollup-plugin-node-resolve';
+
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs'
+  },
+  plugins: [ resolve() ]
+};
 ```
