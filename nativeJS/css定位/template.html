@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>css 定位</title>
+  </head>
+  <body>
+    <style>
+      .root {
+        position: relative;
+      }
+      .primary {
+        margin-top: 600px;
+        width: 600px;
+        height: 200px;
+        background-color: #0586fe;
+      }
+      .error {
+        position: relative;
+        z-index: 10;
+        width: 600px;
+        height: 200px;
+        background-color: #f5222d;
+      }
+      .bottomBox{
+          position: fixed;
+          z-index: 2;
+          bottom: 0;
+          width: 100vw;
+          height: 200px;
+          background-color: #faad14;
+      }
+      .cover{
+          position: fixed;
+          z-index: 999;
+          width: 100vw;
+          height: 100vh;
+          top:0;
+          background-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+    <div class="root">
+      <div style="position: relative; z-index: 2">
+        <div class="primary"><h1>父元素position: relative z-index: 2</h1></div>
+      </div>
+      <div class="error"><h1>此元素position: fixed z-index: 10</h1></div> 
+      <div class="bottomBox">
+        <h1>此元素position: fixed z-index: 2</h1>
+        <div class="cover">
+            <h1>父元素position: fixed z-index: 1</h1>
+            <h1>此元素position: fixed z-index: 999</h1>
+        </div>
+      </div>
+   
+    </div>
+  </body>
+</html>
